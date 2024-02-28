@@ -153,4 +153,6 @@ body {
     padding: 10px 0px 10px 0px;
 }
 
-.submit-button {}
+.message {
+    padding: 0px 0 10px 0;
+}
