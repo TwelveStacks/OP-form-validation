@@ -304,8 +304,10 @@ email.addEventListener('input', function () {
 country.addEventListener('input', function () {
     if (countryValidation(country.value)) {
         countryError.textContent = '';
+        country.setCustomValidity('');
     } else {
         countryError.textContent = 'Please enter a valid country.'
+        country.setCustomValidity('Please enter a valid country.')
     }
 })
 
@@ -318,20 +320,22 @@ zipCode.addEventListener('input', function () {
 })
 
 password.addEventListener('input', function () {
-    if (password.value === '') {
-        passwordError.textContent = 'Please enter a password';
-    } else {
+    if (validatePassword(password.value)) {
         passwordError.textContent = '';
+        password.setCustomValidity('');
+    } else {
+        passwordError.textContent = 'Password must be at least 8 characters.'
+        password.setCustomValidity('Password must be at least 8 characters.');
     }
 })
 
 passwordConfirmation.addEventListener('input', function () {
-    if (passwordConfirmation.value !== password.value) {
-        passwordConfirmationError.textContent = 'Passwords do not match';
-        passwordConfirmation.setCustomValidity('Passwords do not match')
-    } else {
+    if (matchPassword(password.value, passwordConfirmation.value)) {
         passwordConfirmationError.textContent = '';
         passwordConfirmation.setCustomValidity('');
+    } else {
+        passwordConfirmationError.textContent = 'Passwords do not match.'
+        passwordConfirmation.setCustomValidity('Passwords do not match.');
     }
 })
 
@@ -346,6 +350,20 @@ function validateEmail(email) {
         return true;
     }
     else {
+        return false;
+    }
+}
+
+function validatePassword(password) {
+    if (password !== "" && password.length >= 8) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function matchPassword(password, password2) {
+    if (password != password2) {
         return false;
     }
 }
