@@ -12,22 +12,27 @@
             <div class="input-group">
                 <label for="email">Email</label><br>
                 <input type="email" id="email" name="email" required><br>
-                <div class="error-message"></div>
+                <div class="error-message" id="emailError">&nbsp;</div>
             </div>
             <div class="input-group">
                 <label for="country">Country</label><br>
                 <input type="text" id="country" name="country" required><br>
-                <div class="error-message"></div>
+                <div class="error-message" id="countryError">&nbsp;</div>
             </div>
             <div class="input-group">
                 <label for="zip-code">Zip Code</label><br>
-                <input type="text" id="zipcode" name="zipcode" required><br>
-                <div class="error-message"></div>
+                <input type="text" id="zipcode" pattern="\d{5}" name="zipcode" required><br>
+                <div class="error-message" id="zipCodeError">&nbsp;</div>
             </div>
             <div class="input-group">
                 <label for="password">Password</label><br>
                 <input type="password" id="password" name="password" required><br>
-                <div class="error-message"></div>
+                <div class="error-message" id="passwordError">&nbsp;</div>
+            </div>
+            <div class="input-group">
+                <label for="passwordConfirmation">Password Confirmation</label><br>
+                <input type="password" id="passwordConfirmation" name="password" required><br>
+                <div class="error-message" id="passwordConfirmationError">&nbsp;</div>
             </div>
             <button type="submit" class="submit-button">Submit</button>
         </form>
