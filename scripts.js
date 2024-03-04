@@ -313,13 +313,25 @@ zipCode.addEventListener('input', function () {
     if (zipCode.checkValidity()) {
         zipCodeError.textContent = '';
     } else if (!zipCode.checkValidity()) {
-        zipCodeError.textContent = 'Please enter a valid email address.';
+        zipCodeError.textContent = 'Please enter a valid zip code.';
     }
 })
 
 password.addEventListener('input', function () {
-    if (!password.value === '') {
+    if (password.value === '') {
+        passwordError.textContent = 'Please enter a password';
+    } else {
         passwordError.textContent = '';
+    }
+})
+
+passwordConfirmation.addEventListener('input', function () {
+    if (passwordConfirmation.value !== password.value) {
+        passwordConfirmationError.textContent = 'Passwords do not match';
+        passwordConfirmation.setCustomValidity('Passwords do not match')
+    } else {
+        passwordConfirmationError.textContent = '';
+        passwordConfirmation.setCustomValidity('');
     }
 })
 
